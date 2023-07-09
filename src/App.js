@@ -8,9 +8,11 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Teachers from './components/Teachers';
 
-import CSS from './components/courses/CSS';
-import HTML from './components/courses/HTML';
-import JavaScript from './components/courses/JavaScript';
+import CourseContainer from './components/courses/CourseContainer';
+import { HTMLCourses } from './data/courses';
+import { JSCourses } from './data/courses';
+import { CSSCourses } from './data/courses';
+
 
 import NotFound from './components/NotFound';
 
@@ -24,9 +26,9 @@ function App() {
                 <Route path='/teachers/' element={<Teachers />} />
                 <Route path='/courses/' element={<Courses />}>
                     <Route index element={<Navigate replace to="html" />} />
-                    <Route path='html' element={<HTML />} />
-                    <Route path='css' element={<CSS />} />
-                    <Route path='javascript' element={<JavaScript />} />
+                    <Route path='html' element={<CourseContainer data={HTMLCourses} />} />
+                    <Route path='css' element={<CourseContainer data={CSSCourses} />} />
+                    <Route path='javascript' element={<CourseContainer data={JSCourses} />} />
                 </Route>
                 <Route path='*' element={<NotFound />}></Route>
             </Routes>
